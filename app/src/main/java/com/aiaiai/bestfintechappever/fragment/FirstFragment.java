@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.aiaiai.bestfintechappever.R;
 import com.aiaiai.bestfintechappever.adapter.OffersAdapter;
 import com.aiaiai.bestfintechappever.core.App;
+import com.aiaiai.bestfintechappever.data.BuyerManager;
 import com.aiaiai.bestfintechappever.data.offer.OfferRepository;
 import com.aiaiai.bestfintechappever.model.Offer;
 import com.aiaiai.bestfintechappever.model.vh.OnItemClickListener;
@@ -28,7 +29,7 @@ import javax.inject.Inject;
  * Yippie-Kai-Yay!
  */
 
-public class FirstFragment extends Fragment implements OfferRepository.Callback {
+public class FirstFragment extends Fragment implements OfferRepository.Callback, BuyerManager.Callback {
 
     private View rootView;
     protected RecyclerView offersRecyclerView;
@@ -39,6 +40,9 @@ public class FirstFragment extends Fragment implements OfferRepository.Callback 
 
     @Inject
     OfferRepository offerRepository;
+
+    @Inject
+    BuyerManager buyerManager;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -75,6 +79,8 @@ public class FirstFragment extends Fragment implements OfferRepository.Callback 
         offerRepository.prepareOffers(this);
     }
 
+    boolean isBuying = false;
+
     @Override
     public void onOfferPrepared(final List<Offer> offerList) {
         Context context = getContext();
@@ -82,7 +88,11 @@ public class FirstFragment extends Fragment implements OfferRepository.Callback 
             OnItemClickListener onItemClickListener = new OnItemClickListener() {
                 @Override
                 public void click(int position) {
-                    Offer offer = offerList.get(position);
+                    if (!isBuying) {
+                        isBuying = true;
+                        Offer offer = offerList.get(position);
+                        buyerManager.postBuying(offer.getId(), FirstFragment.this);
+                    }
                 }
             };
             OffersAdapter adapter = new OffersAdapter(context, offerList, onItemClickListener);
@@ -96,5 +106,24 @@ public class FirstFragment extends Fragment implements OfferRepository.Callback 
         if (context != null) {
             Toast.makeText(context, "Интернет опять не работает", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void onBought() {
+        isBuying = false;
+        Context context = getContext();
+        if (context != null) {
+            Toast.makeText(context, "Успешно куплено, показать поп ап", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onErrorBought() {
+        isBuying = false;
+        Context context = getContext();
+        if (context != null) {
+            Toast.makeText(context, "что-то пошло не так", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }
