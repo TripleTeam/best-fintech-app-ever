@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.aiaiai.bestfintechappever.R;
 
-public class Splash extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
 
     // TODO: 22.04.17 transfer to sp and check if access is granted
     //We need to request notification for each change in binary code
