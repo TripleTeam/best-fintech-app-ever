@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="16dp"
                 android:paddingTop="16dp"
-                android:text="Ваше наколпенное бабло"
+                android:text="Ваше накопленное бабло"
                 android:textColor="#666"
                 android:textSize="@dimen/material_text_subhead" />
 
