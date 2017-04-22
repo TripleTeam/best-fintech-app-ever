@@ -2,10 +2,10 @@ package com.aiaiai.bestfintechappever.core.modules;
 
 import com.aiaiai.bestfintechappever.data.ApiRetrofitService;
 import com.aiaiai.bestfintechappever.data.OfferRepository;
-import com.aiaiai.bestfintechappever.data.offer.NetworkOfferRepository;
 import com.aiaiai.bestfintechappever.data.offer.OfferApi;
 import com.aiaiai.bestfintechappever.data.offer.OfferApiImpl;
 import com.aiaiai.bestfintechappever.data.offer.OfferMapper;
+import com.aiaiai.bestfintechappever.data.offer.mock.OfferRepositoryMock;
 
 import javax.inject.Singleton;
 
@@ -20,7 +20,7 @@ public abstract class AppModule {
 
     @Binds
     @Singleton
-    abstract OfferRepository bindOfferRepository(NetworkOfferRepository repository);
+    abstract OfferRepository bindOfferRepository(OfferRepositoryMock repository);
 
     @Binds
     @Singleton

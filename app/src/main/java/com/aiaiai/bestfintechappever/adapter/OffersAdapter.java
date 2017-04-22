@@ -16,7 +16,7 @@ import java.util.List;
  * Yippie-Kai-Yay!
  */
 
-public class OffersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class OffersAdapter extends RecyclerView.Adapter<OfferVH> {
 
     private LayoutInflater inflater;
     private List<Offer> offers;
@@ -27,13 +27,13 @@ public class OffersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public OfferVH onCreateViewHolder(ViewGroup parent, int viewType) {
         return new OfferVH(inflater.inflate(R.layout.item_offer, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        ((OfferVH) holder).bind(offers.get(position));
+    public void onBindViewHolder(OfferVH holder, int position) {
+        holder.bind(offers.get(position));
     }
 
     @Override

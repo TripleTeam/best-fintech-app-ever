@@ -21,6 +21,7 @@ public class OfferVH extends RecyclerView.ViewHolder {
     private TextView title;
     private TextView price;
     private TextView cashback;
+    private TextView offerPercent;
 
     public OfferVH(View v) {
         super(v);
@@ -28,6 +29,7 @@ public class OfferVH extends RecyclerView.ViewHolder {
         title = (TextView) v.findViewById(R.id.offer_title);
         price = (TextView) v.findViewById(R.id.offer_price);
         cashback = (TextView) v.findViewById(R.id.offer_cashback);
+        offerPercent = (TextView) v.findViewById(R.id.offer_percent);
     }
 
     public void bind(Offer offer) {
@@ -37,6 +39,7 @@ public class OfferVH extends RecyclerView.ViewHolder {
                 .into(pic);
         title.setText(offer.getTitle());
         price.setText(String.format("%s руб.", offer.getPrice()));
-        cashback.setText(Html.fromHtml(String.format("Кэшбэк: <b>%s руб.</b>", offer.getPrice())));
+        cashback.setText(Html.fromHtml(String.format("Кэшбэк: <b>%s руб.</b> (%s)", offer.getCashbackValue(), offer.getPercent())));
+        offerPercent.setText(offer.getPercent());
     }
 }
