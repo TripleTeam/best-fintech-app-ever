@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#000</color>
-    <color name="colorPrimaryDark">#222</color>
+    <color name="colorPrimaryDark">#DDD</color>
     <color name="colorAccent">#FF9B00</color>
 
     <color name="splashWindowBackground">#EEEEEE</color>
