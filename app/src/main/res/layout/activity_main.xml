@@ -23,6 +23,7 @@
         android:layout_alignParentBottom="true"
         android:clipToPadding="false"
         android:elevation="8dp"
+        style="@style/BottomNavigation"
         app:menu="@menu/navigation" />
 
     <View
