@@ -1,4 +1,4 @@
-package com.aiaiai.bestfintechappever.data.mock;
+package com.aiaiai.bestfintechappever.data.offer.mock;
 
 import com.aiaiai.bestfintechappever.data.OfferRepository;
 import com.aiaiai.bestfintechappever.model.Offer;

@@ -1,4 +1,4 @@
-package com.aiaiai.bestfintechappever.data.model_data;
+package com.aiaiai.bestfintechappever.data.offer;
 
 public class NetworkOffer {
     String category;

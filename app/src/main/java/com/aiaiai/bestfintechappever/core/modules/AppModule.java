@@ -1,7 +1,7 @@
 package com.aiaiai.bestfintechappever.core.modules;
 
 import com.aiaiai.bestfintechappever.data.OfferRepository;
-import com.aiaiai.bestfintechappever.data.mock.OfferRepositoryMock;
+import com.aiaiai.bestfintechappever.data.offer.mock.OfferRepositoryMock;
 
 import javax.inject.Singleton;
 

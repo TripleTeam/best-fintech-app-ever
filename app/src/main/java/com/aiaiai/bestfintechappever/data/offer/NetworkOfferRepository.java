@@ -1,6 +1,7 @@
-package com.aiaiai.bestfintechappever.data;
+package com.aiaiai.bestfintechappever.data.offer;
 
 import com.aiaiai.bestfintechappever.async.MainHandler;
+import com.aiaiai.bestfintechappever.data.OfferRepository;
 
 import java.util.concurrent.ThreadPoolExecutor;
 
