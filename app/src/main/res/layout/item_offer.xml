@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/selectableItemBackground"
     android:layout_marginLeft="8dp"
-    android:layout_marginRight="8dp">
+    android:layout_marginRight="8dp"
+    android:background="?attr/selectableItemBackground">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,16 +14,16 @@
         <ImageView
             android:id="@+id/offer_pic"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="150dp"
             android:background="#eee" />
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/offer_pic"
             android:layout_centerVertical="true"
             android:orientation="vertical"
-            android:padding="4dp">
+            android:padding="8dp">
 
             <TextView
                 android:id="@+id/offer_title"
@@ -35,17 +35,34 @@
                 android:textSize="@dimen/material_text_title"
                 tools:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
 
-            <TextView
-                android:id="@+id/offer_description"
+            <View
+                android:id="@+id/offer_divider"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:ellipsize="end"
-                android:maxLines="3"
-                android:textSize="@dimen/material_text_body1"
-                tools:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
+                android:layout_height="1dp"
+                android:layout_below="@id/offer_title"
+                android:layout_marginTop="8dp"
+                android:background="@color/divider" />
 
-        </LinearLayout>
+            <TextView
+                android:id="@+id/offer_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/offer_divider"
+                android:layout_marginTop="8dp"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/material_text_title"
+                android:textStyle="bold"
+                tools:text="833 руб." />
+
+            <TextView
+                android:id="@+id/offer_cashback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/offer_price"
+                android:layout_alignParentEnd="true"
+                android:textSize="@dimen/material_text_title"
+                tools:text="Кэшбэк: 675 руб." />
+        </RelativeLayout>
 
 
     </RelativeLayout>

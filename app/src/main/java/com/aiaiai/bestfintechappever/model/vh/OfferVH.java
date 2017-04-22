@@ -18,14 +18,15 @@ public class OfferVH extends RecyclerView.ViewHolder {
 
     private ImageView pic;
     private TextView title;
-    private TextView description;
     private TextView price;
+    private TextView cashback;
 
     public OfferVH(View v) {
         super(v);
         pic = (ImageView) v.findViewById(R.id.offer_pic);
         title = (TextView) v.findViewById(R.id.offer_title);
-        description = (TextView) v.findViewById(R.id.offer_description);
+        price = (TextView) v.findViewById(R.id.offer_price);
+        cashback = (TextView) v.findViewById(R.id.offer_cashback);
 //        price = (TextView) v.findViewById(R.id.);
     }
 
@@ -35,6 +36,7 @@ public class OfferVH extends RecyclerView.ViewHolder {
                 .centerCrop()
                 .into(pic);
         title.setText(offer.getTitle());
-        description.setText(offer.getDescription());
+        price.setText(offer.getDescription());
+        cashback.setText(offer.getDescription());
     }
 }
