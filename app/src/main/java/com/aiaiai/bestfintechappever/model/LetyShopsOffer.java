@@ -1,5 +1,6 @@
 package com.aiaiai.bestfintechappever.model;
 
+import com.aiaiai.bestfintechappever.util.AppConstants;
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -14,7 +15,7 @@ public class LetyShopsOffer {
     private String title;
     @SerializedName("cash_back")
     private String cashback;
-    @SerializedName("img_url")
+    @SerializedName("img_url_local")
     private String picUrl;
 
     public LetyShopsOffer(long id, String title, String cashback, String picUrl) {
@@ -37,7 +38,7 @@ public class LetyShopsOffer {
     }
 
     public String getPicUrl() {
-        return picUrl;
+        return AppConstants.baseUrl + "/" + picUrl;
     }
 
 }
