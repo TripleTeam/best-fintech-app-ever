@@ -21,6 +21,11 @@
             android:layout_alignParentTop="true"
             android:background="#eee" />
 
+        <View
+            android:background="@drawable/shadow_down"
+            android:layout_width="match_parent"
+            android:layout_height="55dp" />
+
         <TextView
             android:id="@+id/offer_percent"
             android:layout_width="60dp"
@@ -29,7 +34,7 @@
             android:background="@drawable/bg_percent"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
-            android:text="25%"
+            android:text="5%"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -38,68 +43,40 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/offer_pic"
             android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="8dp">
+
+            <Button
+                android:id="@+id/offer_button"
+                style="@style/Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="Перейти"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/offer_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:textColor="@color/textColorPrimary"
-                android:textSize="@dimen/material_text_title"
-                tools:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
-
-            <TextView
-                android:id="@+id/offer_timer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/offer_title"
-                android:layout_marginTop="8dp"
-                android:drawableLeft="@drawable/ic_clock"
-                android:drawablePadding="4dp"
-                android:gravity="center_vertical"
-                android:textColor="#666"
-                android:text="Осталось: 2 дня, 20:12" />
-
-            <View
-                android:id="@+id/offer_divider"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_below="@id/offer_timer"
-                android:layout_marginTop="8dp"
-                android:background="@color/divider" />
-
-            <TextView
-                android:id="@+id/offer_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/offer_divider"
-                android:layout_marginTop="12dp"
+                android:layout_alignBaseline="@id/offer_button"
                 android:textColor="@color/textColorPrimary"
                 android:textSize="@dimen/material_text_subhead"
                 android:textStyle="bold"
-                tools:text="833 руб." />
+                tools:text="AliExpress" />
 
             <TextView
                 android:id="@+id/offer_cashback"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBaseline="@id/offer_price"
-                android:layout_alignParentEnd="true"
-                android:textColor="@color/textColorPrimary"
+                android:layout_alignBaseline="@id/offer_title"
+                android:layout_marginStart="4dp"
+                android:layout_toEndOf="@id/offer_title"
+                android:textColor="#666"
                 android:textSize="@dimen/material_text_subhead"
-                tools:text="Кэшбэк: 675 руб." />
+                tools:text="(Кэшбэк: 5%)" />
 
-            <Button
-                style="@style/Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/offer_price"
-                android:layout_marginTop="12dp"
-                android:text="Купить"
-                android:textSize="16sp" />
         </RelativeLayout>
 
 
