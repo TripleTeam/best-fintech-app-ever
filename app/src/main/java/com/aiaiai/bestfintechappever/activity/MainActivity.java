@@ -3,11 +3,13 @@ package com.aiaiai.bestfintechappever.activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.aiaiai.bestfintechappever.R;
+import com.aiaiai.bestfintechappever.fragment.FirstFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     textMessage.setText(R.string.title_home);
+                    loadFragment(FirstFragment.instance());
                     return true;
                 case R.id.navigation_dashboard:
                     textMessage.setText(R.string.title_dashboard);
@@ -44,4 +47,9 @@ public class MainActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
     }
 
+    private void loadFragment(Fragment fragment) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, fragment)
+                .commit();
+    }
 }
