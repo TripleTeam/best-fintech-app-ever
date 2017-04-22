@@ -1,5 +1,7 @@
 package com.aiaiai.bestfintechappever.data;
 
+import android.support.annotation.MainThread;
+
 import com.aiaiai.bestfintechappever.model.Offer;
 
 import java.util.List;
@@ -7,6 +9,7 @@ import java.util.List;
 public interface OfferRepository {
 
     interface Callback {
+        @MainThread
         void onOfferPrepared(List<Offer> offerList);
     }
 

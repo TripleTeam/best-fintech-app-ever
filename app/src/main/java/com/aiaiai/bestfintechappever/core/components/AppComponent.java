@@ -3,12 +3,16 @@ package com.aiaiai.bestfintechappever.core.components;
 import android.content.Context;
 
 import com.aiaiai.bestfintechappever.core.modules.AppModule;
+import com.aiaiai.bestfintechappever.core.modules.ConcurrencyModule;
 import com.aiaiai.bestfintechappever.fragment.FirstFragment;
+
+import javax.inject.Singleton;
 
 import dagger.BindsInstance;
 import dagger.Component;
 
-@Component(modules = AppModule.class)
+@Singleton
+@Component(modules = {AppModule.class, ConcurrencyModule.class})
 public interface AppComponent {
 
 

@@ -3,6 +3,8 @@ package com.aiaiai.bestfintechappever.core.modules;
 import com.aiaiai.bestfintechappever.data.OfferRepository;
 import com.aiaiai.bestfintechappever.data.mock.OfferRepositoryMock;
 
+import javax.inject.Singleton;
+
 import dagger.Binds;
 import dagger.Module;
 
@@ -10,5 +12,6 @@ import dagger.Module;
 public abstract class AppModule {
 
     @Binds
+    @Singleton
     abstract OfferRepository bindOfferRepository(OfferRepositoryMock mock);
 }
