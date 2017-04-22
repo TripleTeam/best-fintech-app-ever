@@ -38,13 +38,13 @@ public class LetyOfferRepositoryImpl implements LetyOfferRepository {
                     }
 
                     final List<LetyShopsOffer> finalOffers = offers;
-                    letyShopsOffers.addAll(finalOffers);
                     mainHandler.post(new MainHandler.OnMainThread() {
                         @Override
                         public void doOnMain() {
                             if (finalOffers == null) {
                                 callback.onError();
                             } else {
+                                letyShopsOffers.addAll(finalOffers);
                                 callback.onLettyOfferPrepared(finalOffers);
                             }
                         }
