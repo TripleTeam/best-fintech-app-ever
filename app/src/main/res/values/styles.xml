@@ -8,4 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.BrandedLaunch">
+        <item name="android:windowBackground">@drawable/branded_logo</item>
+    </style>
+
 </resources>
