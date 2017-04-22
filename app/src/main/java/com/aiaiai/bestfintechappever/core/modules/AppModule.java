@@ -1,11 +1,14 @@
 package com.aiaiai.bestfintechappever.core.modules;
 
 import com.aiaiai.bestfintechappever.data.ApiRetrofitService;
-import com.aiaiai.bestfintechappever.data.OfferRepository;
+import com.aiaiai.bestfintechappever.data.letty_offer.LetyOfferRepository;
+import com.aiaiai.bestfintechappever.data.letty_offer.mock.LetyMockOfferRepository;
+import com.aiaiai.bestfintechappever.data.offer.NetworkOfferRepository;
 import com.aiaiai.bestfintechappever.data.offer.OfferApi;
 import com.aiaiai.bestfintechappever.data.offer.OfferApiImpl;
 import com.aiaiai.bestfintechappever.data.offer.OfferMapper;
-import com.aiaiai.bestfintechappever.data.offer.mock.OfferRepositoryMock;
+import com.aiaiai.bestfintechappever.data.offer.OfferRepository;
+import com.aiaiai.bestfintechappever.util.AppConstants;
 
 import javax.inject.Singleton;
 
@@ -20,7 +23,11 @@ public abstract class AppModule {
 
     @Binds
     @Singleton
-    abstract OfferRepository bindOfferRepository(OfferRepositoryMock repository);
+    abstract OfferRepository bindOfferRepository(NetworkOfferRepository repository);
+
+    @Binds
+    @Singleton
+    abstract LetyOfferRepository bindLettyOfferRepository(LetyMockOfferRepository repository);
 
     @Binds
     @Singleton
@@ -29,7 +36,7 @@ public abstract class AppModule {
     @Provides
     @Singleton
     static String provideBaseUrl() {
-        return "http://188.226.140.56:5000";
+        return AppConstants.baseUrl;
     }
 
     @Provides

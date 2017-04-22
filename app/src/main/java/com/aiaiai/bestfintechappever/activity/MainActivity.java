@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import com.aiaiai.bestfintechappever.R;
 import com.aiaiai.bestfintechappever.base.BaseActivity;
 import com.aiaiai.bestfintechappever.fragment.FirstFragment;
+import com.aiaiai.bestfintechappever.fragment.SecondFragment;
 
 public class MainActivity extends BaseActivity {
 
@@ -22,6 +23,7 @@ public class MainActivity extends BaseActivity {
                     loadFragment(FirstFragment.instance());
                     return true;
                 case R.id.navigation_dashboard:
+                    loadFragment(SecondFragment.instance());
                     return true;
                 case R.id.navigation_notifications:
                     return true;

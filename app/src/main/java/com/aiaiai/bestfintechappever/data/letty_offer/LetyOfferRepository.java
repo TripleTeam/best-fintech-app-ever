@@ -1,17 +1,17 @@
-package com.aiaiai.bestfintechappever.data;
+package com.aiaiai.bestfintechappever.data.letty_offer;
 
 import android.support.annotation.MainThread;
 import android.support.annotation.NonNull;
 
-import com.aiaiai.bestfintechappever.model.Offer;
+import com.aiaiai.bestfintechappever.model.LetyShopsOffer;
 
 import java.util.List;
 
-public interface OfferRepository {
+public interface LetyOfferRepository {
 
     interface Callback {
         @MainThread
-        void onOfferPrepared(@NonNull List<Offer> offerList);
+        void onLettyOfferPrepared(@NonNull List<LetyShopsOffer> offerList);
 
         void onError();
     }
@@ -24,5 +24,4 @@ public interface OfferRepository {
      * callback can be executed, when your view is already null
      */
     void prepareOffers(Callback callback);
-
 }

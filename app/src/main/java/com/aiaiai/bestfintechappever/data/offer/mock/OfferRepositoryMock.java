@@ -1,6 +1,6 @@
 package com.aiaiai.bestfintechappever.data.offer.mock;
 
-import com.aiaiai.bestfintechappever.data.OfferRepository;
+import com.aiaiai.bestfintechappever.data.offer.OfferRepository;
 import com.aiaiai.bestfintechappever.model.Offer;
 
 import java.util.ArrayList;

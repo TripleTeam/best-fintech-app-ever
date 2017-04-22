@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.aiaiai.bestfintechappever.R;
 import com.aiaiai.bestfintechappever.adapter.OffersAdapter;
 import com.aiaiai.bestfintechappever.core.App;
-import com.aiaiai.bestfintechappever.data.OfferRepository;
+import com.aiaiai.bestfintechappever.data.offer.OfferRepository;
 import com.aiaiai.bestfintechappever.model.Offer;
 import com.aiaiai.bestfintechappever.util.itemdecoration.VerticalSpaceItemDecoration;
 
@@ -30,8 +30,7 @@ import javax.inject.Inject;
 public class FirstFragment extends Fragment implements OfferRepository.Callback {
 
     private View rootView;
-    private RecyclerView offersRecyclerView;
-    private OffersAdapter adapter;
+    protected RecyclerView offersRecyclerView;
 
     public static FirstFragment instance() {
         return new FirstFragment();
@@ -44,6 +43,10 @@ public class FirstFragment extends Fragment implements OfferRepository.Callback 
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+        injectDependencies();
+    }
+
+    protected void injectDependencies() {
         App.component().inject(this);
     }
 
@@ -64,13 +67,18 @@ public class FirstFragment extends Fragment implements OfferRepository.Callback 
     private void initRecyclerView() {
         offersRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         offersRecyclerView.addItemDecoration(new VerticalSpaceItemDecoration(8));
+        initiateLoading();
+    }
+
+    public void initiateLoading() {
         offerRepository.prepareOffers(this);
     }
 
     @Override
     public void onOfferPrepared(List<Offer> offerList) {
-        if (offersRecyclerView != null) {
-            adapter = new OffersAdapter(getContext(), offerList);
+        Context context = getContext();
+        if (offersRecyclerView != null && context != null) {
+            OffersAdapter adapter = new OffersAdapter(context, offerList);
             offersRecyclerView.setAdapter(adapter);
         }
     }

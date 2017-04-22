@@ -1,7 +1,6 @@
 package com.aiaiai.bestfintechappever.data.offer;
 
 import com.aiaiai.bestfintechappever.async.MainHandler;
-import com.aiaiai.bestfintechappever.data.OfferRepository;
 import com.aiaiai.bestfintechappever.model.Offer;
 
 import java.util.List;

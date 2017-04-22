@@ -1,18 +1,23 @@
 package com.aiaiai.bestfintechappever.model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Slavik on 22.04.2017.
  * Yippie-Kai-Yay!
  */
 
-public class OfferLetyShops {
+public class LetyShopsOffer {
 
     private long id;
+    @SerializedName("description")
     private String title;
+    @SerializedName("cash_back")
     private String cashback;
+    @SerializedName("img_url")
     private String picUrl;
 
-    public OfferLetyShops(long id, String title, String cashback, String picUrl) {
+    public LetyShopsOffer(long id, String title, String cashback, String picUrl) {
         this.id = id;
         this.title = title;
         this.cashback = cashback;
@@ -23,31 +28,16 @@ public class OfferLetyShops {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
     public String getTitle() {
         return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getCashback() {
         return cashback;
     }
 
-    public void setCashback(String cashback) {
-        this.cashback = cashback;
-    }
-
     public String getPicUrl() {
         return picUrl;
     }
 
-    public void setPicUrl(String picUrl) {
-        this.picUrl = picUrl;
-    }
 }

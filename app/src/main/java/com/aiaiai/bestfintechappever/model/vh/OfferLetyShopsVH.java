@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.aiaiai.bestfintechappever.R;
-import com.aiaiai.bestfintechappever.model.OfferLetyShops;
+import com.aiaiai.bestfintechappever.model.LetyShopsOffer;
 import com.bumptech.glide.Glide;
 
 /**
@@ -23,28 +23,28 @@ public class OfferLetyShopsVH extends RecyclerView.ViewHolder {
     private TextView percent;
     private Button button;
 
-    public OfferLetyShopsVH(View v) {
+    public OfferLetyShopsVH(View v, final OnItemClickListener onItemClickListener) {
         super(v);
         pic = (ImageView) v.findViewById(R.id.offer_pic);
         title = (TextView) v.findViewById(R.id.offer_title);
         cashback = (TextView) v.findViewById(R.id.offer_cashback);
         percent = (TextView) v.findViewById(R.id.offer_percent);
         button = (Button) v.findViewById(R.id.offer_button);
-    }
-
-    public void bind(OfferLetyShops offer) {
-        Glide.with(pic.getContext())
-                .load(offer.getPicUrl())
-                .centerCrop()
-                .into(pic);
-        title.setText(offer.getTitle());
-        cashback.setText(String.format("Кэшбэк: %s%", offer.getCashback()));
-        percent.setText(offer.getCashback());
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                onItemClickListener.click(getAdapterPosition());
             }
         });
+    }
+
+    public void bind(LetyShopsOffer offer) {
+        Glide.with(pic.getContext())
+                .load(offer.getPicUrl())
+                .fitCenter()
+                .into(pic);
+        title.setText(offer.getTitle());
+        cashback.setText(String.format("Кэшбэк: %s", offer.getCashback()));
+        percent.setText(offer.getCashback());
     }
 }
