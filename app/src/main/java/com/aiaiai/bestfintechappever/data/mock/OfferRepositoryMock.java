@@ -28,6 +28,8 @@ public class OfferRepositoryMock implements OfferRepository {
                     20000 + i * 117 + "",
                     10000 + i * 113 + ""
             );
+            offerList.add(offer);
         }
+        callback.onOfferPrepared(offerList);
     }
 }

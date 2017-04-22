@@ -22,14 +22,11 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    textMessage.setText(R.string.title_home);
                     loadFragment(FirstFragment.instance());
                     return true;
                 case R.id.navigation_dashboard:
-                    textMessage.setText(R.string.title_dashboard);
                     return true;
                 case R.id.navigation_notifications:
-                    textMessage.setText(R.string.title_notifications);
                     return true;
             }
             return false;
@@ -42,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
     }

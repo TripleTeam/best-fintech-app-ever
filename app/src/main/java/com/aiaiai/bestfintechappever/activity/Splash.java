@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.aiaiai.bestfintechappever.R;
-import com.aiaiai.bestfintechappever.util.notification.NotificationAccessRequester;
 
 public class Splash extends AppCompatActivity {
 
@@ -22,8 +21,8 @@ public class Splash extends AppCompatActivity {
         startActivity(intent);
         finish();
 
-        if (!isNotificationAccessIsReceived) {
-            NotificationAccessRequester.requestNotification(this);
-        }
+//        if (!isNotificationAccessIsReceived) {
+//            NotificationAccessRequester.requestNotification(this);
+//        }
     }
 }
