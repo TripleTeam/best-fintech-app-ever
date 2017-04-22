@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#222</color>
     <color name="colorAccent">#FF9B00</color>
 
-    <color name="splashWindowBackground">#FFFFFF</color>
+    <color name="splashWindowBackground">#EEEEEE</color>
     <color name="divider">#EEE</color>
     <color name="bg_color">#EEE</color>
 
