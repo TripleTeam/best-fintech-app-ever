@@ -1,5 +1,6 @@
 package com.aiaiai.bestfintechappever.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.aiaiai.bestfintechappever.R;
 import com.aiaiai.bestfintechappever.adapter.OffersAdapter;
@@ -70,6 +72,14 @@ public class FirstFragment extends Fragment implements OfferRepository.Callback 
         if (offersRecyclerView != null) {
             adapter = new OffersAdapter(getContext(), offerList);
             offersRecyclerView.setAdapter(adapter);
+        }
+    }
+
+    @Override
+    public void onError() {
+        Context context = getContext();
+        if (context != null) {
+            Toast.makeText(context, "Интернет опять не работает", Toast.LENGTH_SHORT).show();
         }
     }
 }

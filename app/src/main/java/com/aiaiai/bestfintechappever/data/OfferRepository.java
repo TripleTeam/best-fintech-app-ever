@@ -1,6 +1,7 @@
 package com.aiaiai.bestfintechappever.data;
 
 import android.support.annotation.MainThread;
+import android.support.annotation.NonNull;
 
 import com.aiaiai.bestfintechappever.model.Offer;
 
@@ -10,7 +11,9 @@ public interface OfferRepository {
 
     interface Callback {
         @MainThread
-        void onOfferPrepared(List<Offer> offerList);
+        void onOfferPrepared(@NonNull List<Offer> offerList);
+
+        void onError();
     }
 
     /**

@@ -36,7 +36,7 @@ public class OfferVH extends RecyclerView.ViewHolder {
                 .centerCrop()
                 .into(pic);
         title.setText(offer.getTitle());
-        price.setText(String.format("%s руб.", offer.getNewPrice()));
-        cashback.setText(Html.fromHtml(String.format("Кэшбэк: <b>%s руб.</b>", offer.getNewPrice())));
+        price.setText(String.format("%s руб.", offer.getPrice()));
+        cashback.setText(Html.fromHtml(String.format("Кэшбэк: <b>%s руб.</b>", offer.getPrice())));
     }
 }

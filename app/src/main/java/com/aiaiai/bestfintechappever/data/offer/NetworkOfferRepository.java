@@ -2,31 +2,56 @@ package com.aiaiai.bestfintechappever.data.offer;
 
 import com.aiaiai.bestfintechappever.async.MainHandler;
 import com.aiaiai.bestfintechappever.data.OfferRepository;
+import com.aiaiai.bestfintechappever.model.Offer;
 
+import java.util.List;
 import java.util.concurrent.ThreadPoolExecutor;
+
+import javax.inject.Inject;
 
 public class NetworkOfferRepository implements OfferRepository {
 
     private final ThreadPoolExecutor threadPoolExecutor;
     private final MainHandler mainHandler;
+    private final OfferApi offerApi;
+    private final OfferMapper mapper;
 
-    NetworkOfferRepository(ThreadPoolExecutor threadPoolExecutor, MainHandler mainHandler) {
-
+    @Inject
+    NetworkOfferRepository(ThreadPoolExecutor threadPoolExecutor, MainHandler mainHandler, OfferApi offerApi, OfferMapper mapper) {
         this.threadPoolExecutor = threadPoolExecutor;
         this.mainHandler = mainHandler;
+        this.offerApi = offerApi;
+        this.mapper = mapper;
     }
 
     @Override
-    public void prepareOffers(Callback callback) {
+    public void prepareOffers(final Callback callback) {
+
         threadPoolExecutor.execute(new Runnable() {
-
-
             @Override
             public void run() {
+                List<NetworkOffer> offers;
+                try {
+                    offers = offerApi.getOffers().execute().body();
+                } catch (Exception e) {
+                    offers = null;
+                }
+
+                final List<Offer> domainOffers;
+                if (offers != null) {
+                    domainOffers = mapper.toModel(offers);
+                } else {
+                    domainOffers = null;
+                }
+
                 mainHandler.post(new MainHandler.OnMainThread() {
                     @Override
                     public void doOnMain() {
-
+                        if (domainOffers == null) {
+                            callback.onError();
+                        } else {
+                            callback.onOfferPrepared(domainOffers);
+                        }
                     }
                 });
             }

@@ -1,8 +1,9 @@
 package com.aiaiai.bestfintechappever.data.offer;
 
 import java.util.List;
-import java.util.concurrent.Callable;
+
+import retrofit2.Call;
 
 public interface OfferApi {
-    Callable<List<NetworkOffer>> getOffers();
+    Call<List<NetworkOffer>> getOffers();
 }
