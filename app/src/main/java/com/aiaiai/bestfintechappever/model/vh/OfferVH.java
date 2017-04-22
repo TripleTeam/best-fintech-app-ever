@@ -1,6 +1,7 @@
 package com.aiaiai.bestfintechappever.model.vh;
 
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,15 +19,15 @@ public class OfferVH extends RecyclerView.ViewHolder {
 
     private ImageView pic;
     private TextView title;
-    private TextView description;
     private TextView price;
+    private TextView cashback;
 
     public OfferVH(View v) {
         super(v);
         pic = (ImageView) v.findViewById(R.id.offer_pic);
         title = (TextView) v.findViewById(R.id.offer_title);
-        description = (TextView) v.findViewById(R.id.offer_description);
-//        price = (TextView) v.findViewById(R.id.);
+        price = (TextView) v.findViewById(R.id.offer_price);
+        cashback = (TextView) v.findViewById(R.id.offer_cashback);
     }
 
     public void bind(Offer offer) {
@@ -35,6 +36,7 @@ public class OfferVH extends RecyclerView.ViewHolder {
                 .centerCrop()
                 .into(pic);
         title.setText(offer.getTitle());
-        description.setText(offer.getDescription());
+        price.setText(String.format("%s руб.", offer.getNewPrice()));
+        cashback.setText(Html.fromHtml(String.format("Кэшбэк: <b>%s руб.</b>", offer.getNewPrice())));
     }
 }

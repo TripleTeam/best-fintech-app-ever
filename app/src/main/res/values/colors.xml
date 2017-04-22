@@ -4,4 +4,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="splashWindowBackground">#FFFFFF</color>
+    <color name="divider">#EEE</color>
+
+    <color name="black">#000</color>
+    <color name="white">#FFF</color>
+    <color name="gold">#FF9B00</color>
 </resources>

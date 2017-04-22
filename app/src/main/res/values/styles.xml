@@ -6,10 +6,21 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:statusBarColor">@color/black</item>
     </style>
+
 
     <style name="AppTheme.BrandedLaunch">
         <item name="android:windowBackground">@drawable/branded_logo</item>
+    </style>
+
+    <style name="BottomNavigation">
+        <item name="android:background">@color/black</item>
+        <item name="itemBackground">@drawable/navigation_item_bg</item>
+        <item name="itemIconTint">@color/navigation_item_color</item>
+        <item name="itemTextColor">@color/navigation_item_color</item>
     </style>
 
 </resources>
