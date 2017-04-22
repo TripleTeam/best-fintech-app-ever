@@ -43,8 +43,6 @@ public class FirstFragment extends Fragment implements OfferRepository.Callback 
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
         App.component().inject(this);
-
-        offerRepository.prepareOffers(this);
     }
 
     @Nullable
@@ -64,6 +62,7 @@ public class FirstFragment extends Fragment implements OfferRepository.Callback 
     private void initRecyclerView() {
         offersRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         offersRecyclerView.addItemDecoration(new VerticalSpaceItemDecoration(8));
+        offerRepository.prepareOffers(this);
     }
 
     @Override
