@@ -9,6 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.aiaiai.bestfintechappever.R;
+import com.aiaiai.bestfintechappever.core.App;
+import com.aiaiai.bestfintechappever.data.OfferRepository;
+
+import javax.inject.Inject;
 
 /**
  * Created by Slavik on 22.04.2017.
@@ -22,6 +26,16 @@ public class FirstFragment extends Fragment {
 
     public static FirstFragment instance() {
         return new FirstFragment();
+    }
+
+    @Inject
+    OfferRepository offerRepository;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+        App.component().inject(this);
     }
 
     @Nullable
