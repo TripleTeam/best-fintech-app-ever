@@ -5,7 +5,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.aiaiai.bestfintechappever.R;
 import com.aiaiai.bestfintechappever.model.Offer;
+import com.bumptech.glide.Glide;
 
 /**
  * Created by Slavik on 22.04.2017.
@@ -21,13 +23,18 @@ public class OfferVH extends RecyclerView.ViewHolder {
 
     public OfferVH(View v) {
         super(v);
-//        pic = (ImageView) v.findViewById(R.id.);
-//        title = (TextView) v.findViewById(R.id.);
-//        description = (TextView) v.findViewById(R.id.);
+        pic = (ImageView) v.findViewById(R.id.offer_pic);
+        title = (TextView) v.findViewById(R.id.offer_title);
+        description = (TextView) v.findViewById(R.id.offer_description);
 //        price = (TextView) v.findViewById(R.id.);
     }
 
     public void bind(Offer offer) {
-
+        Glide.with(pic.getContext())
+                .load(offer.getPicUrl())
+                .centerCrop()
+                .into(pic);
+        title.setText(offer.getTitle());
+        description.setText(offer.getDescription());
     }
 }
