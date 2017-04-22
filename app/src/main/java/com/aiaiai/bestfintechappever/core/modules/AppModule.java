@@ -2,7 +2,7 @@ package com.aiaiai.bestfintechappever.core.modules;
 
 import com.aiaiai.bestfintechappever.data.ApiRetrofitService;
 import com.aiaiai.bestfintechappever.data.letty_offer.LetyOfferRepository;
-import com.aiaiai.bestfintechappever.data.letty_offer.mock.LetyMockOfferRepository;
+import com.aiaiai.bestfintechappever.data.letty_offer.LetyOfferRepositoryImpl;
 import com.aiaiai.bestfintechappever.data.offer.NetworkOfferRepository;
 import com.aiaiai.bestfintechappever.data.offer.OfferApi;
 import com.aiaiai.bestfintechappever.data.offer.OfferApiImpl;
@@ -27,7 +27,7 @@ public abstract class AppModule {
 
     @Binds
     @Singleton
-    abstract LetyOfferRepository bindLettyOfferRepository(LetyMockOfferRepository repository);
+    abstract LetyOfferRepository bindLettyOfferRepository(LetyOfferRepositoryImpl repository);
 
     @Binds
     @Singleton

@@ -1,6 +1,7 @@
 package com.aiaiai.bestfintechappever.data;
 
 import com.aiaiai.bestfintechappever.data.offer.NetworkOffer;
+import com.aiaiai.bestfintechappever.model.LetyShopsOffer;
 
 import java.util.List;
 
@@ -11,4 +12,7 @@ public interface ApiRetrofitService {
 
     @GET("biglion/offers")
     Call<List<NetworkOffer>> getSuperOffers();
+
+    @GET("letyshops/offers")
+    Call<List<LetyShopsOffer>> getLettyOffers();
 }

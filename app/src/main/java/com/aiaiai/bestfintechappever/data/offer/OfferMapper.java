@@ -34,7 +34,7 @@ public class OfferMapper {
     }
 
     @NonNull
-    List<Offer> toModel(List<NetworkOffer> networkOffers) {
+    public List<Offer> toModel(List<NetworkOffer> networkOffers) {
         List<Offer> result = new ArrayList<>(networkOffers.size());
         for (NetworkOffer networkOffer : networkOffers) {
             result.add(toModel(networkOffer));
