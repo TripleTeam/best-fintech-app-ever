@@ -9,6 +9,7 @@
     <color name="bg_color">#EEE</color>
 
     <color name="textColorPrimary">@color/black</color>
+    <color name="textColorPercent">#0B9A30</color>
 
     <color name="black">#000</color>
     <color name="white">#FFF</color>

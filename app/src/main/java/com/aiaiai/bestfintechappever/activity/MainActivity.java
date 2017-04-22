@@ -10,6 +10,7 @@ import com.aiaiai.bestfintechappever.R;
 import com.aiaiai.bestfintechappever.base.BaseActivity;
 import com.aiaiai.bestfintechappever.fragment.FirstFragment;
 import com.aiaiai.bestfintechappever.fragment.SecondFragment;
+import com.aiaiai.bestfintechappever.fragment.ThirdFragment;
 
 public class MainActivity extends BaseActivity {
 
@@ -26,6 +27,7 @@ public class MainActivity extends BaseActivity {
                     loadFragment(SecondFragment.instance());
                     return true;
                 case R.id.navigation_notifications:
+                    loadFragment(ThirdFragment.instance());
                     return true;
             }
             return false;
