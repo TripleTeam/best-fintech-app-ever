@@ -10,7 +10,8 @@ import com.aiaiai.bestfintechappever.util.notification.NotificationAccessRequest
 public class Splash extends AppCompatActivity {
 
     // TODO: 22.04.17 transfer to sp and check if access is granted
-    final boolean isNotificationAccessIsReceived = false;
+    //We need to request notification for each change in binary code
+    final boolean isNotificationAccessIsReceived = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
