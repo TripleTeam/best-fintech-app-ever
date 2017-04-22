@@ -43,7 +43,7 @@ public class SecondFragment extends FirstFragment implements LetyOfferRepository
     public void onLettyOfferPrepared(@NonNull List<LetyShopsOffer> offerList) {
         Context context = getContext();
         if (offersRecyclerView != null && context != null) {
-            OffersAdapter adapter = new OffersAdapter(context, new ArrayList<Offer>(), offerList);
+            OffersAdapter adapter = new OffersAdapter(context, new ArrayList<Offer>(), offerList, null);
             offersRecyclerView.setAdapter(adapter);
         }
     }

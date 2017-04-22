@@ -16,6 +16,7 @@ import com.aiaiai.bestfintechappever.adapter.OffersAdapter;
 import com.aiaiai.bestfintechappever.core.App;
 import com.aiaiai.bestfintechappever.data.offer.OfferRepository;
 import com.aiaiai.bestfintechappever.model.Offer;
+import com.aiaiai.bestfintechappever.model.vh.OnItemClickListener;
 import com.aiaiai.bestfintechappever.util.itemdecoration.VerticalSpaceItemDecoration;
 
 import java.util.List;
@@ -75,10 +76,16 @@ public class FirstFragment extends Fragment implements OfferRepository.Callback 
     }
 
     @Override
-    public void onOfferPrepared(List<Offer> offerList) {
+    public void onOfferPrepared(final List<Offer> offerList) {
         Context context = getContext();
         if (offersRecyclerView != null && context != null) {
-            OffersAdapter adapter = new OffersAdapter(context, offerList);
+            OnItemClickListener onItemClickListener = new OnItemClickListener() {
+                @Override
+                public void click(int position) {
+                    Offer offer = offerList.get(position);
+                }
+            };
+            OffersAdapter adapter = new OffersAdapter(context, offerList, onItemClickListener);
             offersRecyclerView.setAdapter(adapter);
         }
     }

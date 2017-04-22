@@ -2,6 +2,7 @@ package com.aiaiai.bestfintechappever.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -28,31 +29,32 @@ public class OffersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     private LayoutInflater inflater;
     private List<Offer> offers;
+    @Nullable
+    private final OnItemClickListener biglion;
     private List<LetyShopsOffer> offersLetyShops = new ArrayList<>();
+    private OnItemClickListener lettyListener;
 
-    public OffersAdapter(Context context, List<Offer> offers) {
+    //biglion
+    public OffersAdapter(Context context, List<Offer> offers, @Nullable OnItemClickListener biglion) {
         this.inflater = LayoutInflater.from(context);
         this.offers = offers;
+        this.biglion = biglion;
+        lettyListener = null;
     }
 
-    public OffersAdapter(Context context, @NonNull List<Offer> offers, @NonNull List<LetyShopsOffer> offersLetyShops) {
-        this(context, offers);
+    public OffersAdapter(Context context, @NonNull List<Offer> offers, @NonNull List<LetyShopsOffer> offersLetyShops, OnItemClickListener lettyListener) {
+        this(context, offers, null);
         this.offersLetyShops = offersLetyShops;
+        this.lettyListener = lettyListener;
     }
 
 
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         switch (viewType) {
             case 0:
-                return new OfferVH(inflater.inflate(R.layout.item_offer_biglion, parent, false));
+                return new OfferVH(inflater.inflate(R.layout.item_offer_biglion, parent, false), biglion);
             case 1:
-                OnItemClickListener onItemClickListener = new OnItemClickListener() {
-                    @Override
-                    public void click(int position) {
-                        LetyShopsOffer letyShopsOffer = offersLetyShops.get(position);
-                    }
-                };
-                return new OfferLetyShopsVH(inflater.inflate(R.layout.item_offer_letyshops, parent, false), onItemClickListener);
+                return new OfferLetyShopsVH(inflater.inflate(R.layout.item_offer_letyshops, parent, false), lettyListener);
         }
         return null;
     }
@@ -81,10 +83,4 @@ public class OffersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         }
         return 1;
     }
-//
-//    interface OnClickItem  {
-//        void onClick () {
-//
-//        }
-//    }
 }

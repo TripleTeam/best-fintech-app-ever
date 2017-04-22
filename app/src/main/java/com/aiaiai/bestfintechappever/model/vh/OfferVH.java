@@ -21,14 +21,24 @@ public class OfferVH extends RecyclerView.ViewHolder {
     private TextView price;
     private TextView cashback;
     private TextView offerPercent;
+    private View offerButton;
 
-    public OfferVH(View v) {
+    public OfferVH(View v, final OnItemClickListener onItemClickListener) {
         super(v);
         pic = (ImageView) v.findViewById(R.id.offer_pic);
         title = (TextView) v.findViewById(R.id.offer_title);
         price = (TextView) v.findViewById(R.id.offer_price);
         cashback = (TextView) v.findViewById(R.id.offer_cashback);
         offerPercent = (TextView) v.findViewById(R.id.offer_percent);
+        offerButton = v.findViewById(R.id.offer_button);
+
+        offerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onItemClickListener.click(getAdapterPosition());
+            }
+        });
+
     }
 
     public void bind(Offer offer) {
