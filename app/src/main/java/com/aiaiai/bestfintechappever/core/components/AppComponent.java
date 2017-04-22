@@ -2,6 +2,7 @@ package com.aiaiai.bestfintechappever.core.components;
 
 import android.content.Context;
 
+import com.aiaiai.bestfintechappever.activity.SplashActivity;
 import com.aiaiai.bestfintechappever.core.modules.AppModule;
 import com.aiaiai.bestfintechappever.core.modules.ConcurrencyModule;
 import com.aiaiai.bestfintechappever.fragment.FirstFragment;
@@ -29,4 +30,6 @@ public interface AppComponent {
     void inject(FirstFragment firstFragment);
 
     void inject(SecondFragment secondFragment);
+
+    void inject(SplashActivity splashActivity);
 }
