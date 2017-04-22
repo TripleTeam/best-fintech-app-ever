@@ -4,16 +4,13 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.aiaiai.bestfintechappever.R;
+import com.aiaiai.bestfintechappever.base.BaseActivity;
 import com.aiaiai.bestfintechappever.fragment.FirstFragment;
 
-public class MainActivity extends AppCompatActivity {
-
-    private TextView textMessage;
+public class MainActivity extends BaseActivity {
 
     private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -38,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getWindow().setStatusBarColor(R.color.navigation_item_color);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
 
