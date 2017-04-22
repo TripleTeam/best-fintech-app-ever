@@ -11,53 +11,40 @@ public class Offer {
     private String title;
     private String description;
     private String picUrl;
-    private String price;
+    private final String oldPrice;
+    private final String newPrice;
 
-    public Offer(long id, String title, String description, String picUrl, String price) {
+    public Offer(long id, String title, String description, String picUrl, String oldPrice, String newPrice) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.picUrl = picUrl;
-        this.price = price;
+        this.oldPrice = oldPrice;
+        this.newPrice = newPrice;
     }
 
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getTitle() {
         return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getPicUrl() {
         return picUrl;
     }
 
-    public void setPicUrl(String picUrl) {
-        this.picUrl = picUrl;
+    public String getOldPrice() {
+        return oldPrice;
     }
 
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
+    public String getNewPrice() {
+        return newPrice;
     }
 }

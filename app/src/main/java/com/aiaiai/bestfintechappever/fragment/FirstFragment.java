@@ -11,37 +11,40 @@ import android.view.ViewGroup;
 
 import com.aiaiai.bestfintechappever.R;
 import com.aiaiai.bestfintechappever.adapter.OffersAdapter;
+import com.aiaiai.bestfintechappever.core.App;
+import com.aiaiai.bestfintechappever.data.OfferRepository;
 import com.aiaiai.bestfintechappever.model.Offer;
 import com.aiaiai.bestfintechappever.util.itemdecoration.VerticalSpaceItemDecoration;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 /**
  * Created by Slavik on 22.04.2017.
  * Yippie-Kai-Yay!
  */
 
-public class FirstFragment extends Fragment {
-
-    private List<Offer> offers;
+public class FirstFragment extends Fragment implements OfferRepository.Callback {
 
     private View rootView;
     private RecyclerView offersRecyclerView;
+    private OffersAdapter adapter;
 
     public static FirstFragment instance() {
         return new FirstFragment();
     }
 
+    @Inject
+    OfferRepository offerRepository;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+        App.component().inject(this);
 
-        offers = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            offers.add(new Offer(i, "Offer " + i, "Description " + i,
-                    "https://i.kinja-img.com/gawker-media/image/upload/t_original/bhjivrw2chm9um9yrrmy.jpg", "1"));
-        }
+        offerRepository.prepareOffers(this);
     }
 
     @Nullable
@@ -55,8 +58,19 @@ public class FirstFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        initRecyclerView();
+    }
+
+    private void initRecyclerView() {
         offersRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        offersRecyclerView.setAdapter(new OffersAdapter(getContext(), offers));
         offersRecyclerView.addItemDecoration(new VerticalSpaceItemDecoration(8));
+    }
+
+    @Override
+    public void onOfferPrepared(List<Offer> offerList) {
+        if (offersRecyclerView != null) {
+            adapter = new OffersAdapter(getContext(), offerList);
+            offersRecyclerView.setAdapter(adapter);
+        }
     }
 }
