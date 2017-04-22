@@ -24,7 +24,7 @@ public class OfferRepositoryMock implements OfferRepository {
                     i,
                     "Заголовок #" + i + ". ",
                     "Это просто лучший товар #" + i + ". Его очень длинное описание. Его очень длинное описание. Его очень длинное описание. Его очень длинное описание. Его очень длинное описание. Его очень длинное описание. Его очень длинное описание. ",
-                    "https://stepik.org/media/covers/asset-v1-PozdnyakovaSvetlana1000001typeassetblockfr_375_200_iBEbyaT.jpg",
+                    "http://st.biglion.ru/c/w/672/h/378/cfs15/deal_offer/55/43/55430fd0888e46f90f34f5b0b6ba73c4.jpg",
                     20000 + i * 117 + "",
                     10000 + i * 113 + ""
             );
