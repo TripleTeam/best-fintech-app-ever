@@ -17,12 +17,14 @@ public class LetyShopsOffer {
     private String cashback;
     @SerializedName("img_url_local")
     private String picUrl;
+    private String href;
 
-    public LetyShopsOffer(long id, String title, String cashback, String picUrl) {
+    public LetyShopsOffer(long id, String title, String cashback, String picUrl, String href) {
         this.id = id;
         this.title = title;
         this.cashback = cashback;
         this.picUrl = picUrl;
+        this.href = href;
     }
 
     public long getId() {
@@ -41,4 +43,7 @@ public class LetyShopsOffer {
         return AppConstants.baseUrl + "/" + picUrl;
     }
 
+    public String getHref() {
+        return href;
+    }
 }

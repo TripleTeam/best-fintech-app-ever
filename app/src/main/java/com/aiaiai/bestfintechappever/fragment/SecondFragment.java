@@ -1,6 +1,8 @@
 package com.aiaiai.bestfintechappever.fragment;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 
 import com.aiaiai.bestfintechappever.adapter.OffersAdapter;
@@ -8,6 +10,7 @@ import com.aiaiai.bestfintechappever.core.App;
 import com.aiaiai.bestfintechappever.data.letty_offer.LetyOfferRepository;
 import com.aiaiai.bestfintechappever.model.LetyShopsOffer;
 import com.aiaiai.bestfintechappever.model.Offer;
+import com.aiaiai.bestfintechappever.model.vh.OnItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,10 +43,18 @@ public class SecondFragment extends FirstFragment implements LetyOfferRepository
     }
 
     @Override
-    public void onLettyOfferPrepared(@NonNull List<LetyShopsOffer> offerList) {
+    public void onLettyOfferPrepared(@NonNull final List<LetyShopsOffer> offerList) {
         Context context = getContext();
         if (offersRecyclerView != null && context != null) {
-            OffersAdapter adapter = new OffersAdapter(context, new ArrayList<Offer>(), offerList, null);
+            OnItemClickListener onItemClickListener = new OnItemClickListener() {
+                @Override
+                public void click(int position) {
+                    LetyShopsOffer letyShopsOffer = offerList.get(position);
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(letyShopsOffer.getHref()));
+                    App.getAppContext().startActivity(browserIntent);
+                }
+            };
+            OffersAdapter adapter = new OffersAdapter(context, new ArrayList<Offer>(), offerList, onItemClickListener);
             offersRecyclerView.setAdapter(adapter);
         }
     }

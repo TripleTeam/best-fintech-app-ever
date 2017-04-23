@@ -24,8 +24,8 @@ public class LetyMockOfferRepository implements LetyOfferRepository {
                     i,
                     "Aliexpress",
                     "5%",
-                    "https://image01.letyshops.ru/sites/default/files/styles/shop_logo_143x59/public/aliexpress1.jpg?itok=v6nZhFkg"
-            );
+                    "https://image01.letyshops.ru/sites/default/files/styles/shop_logo_143x59/public/aliexpress1.jpg?itok=v6nZhFkg",
+                    "https://google.com/");
             offerList.add(offer);
         }
         callback.onLettyOfferPrepared(offerList);
