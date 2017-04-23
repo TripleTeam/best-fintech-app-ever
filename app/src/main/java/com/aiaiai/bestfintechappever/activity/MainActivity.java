@@ -39,11 +39,13 @@ public class MainActivity extends BaseActivity {
 
     };
 
+    BottomNavigationView navigation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
 
         loadFragment(FirstFragment.instance());
@@ -53,5 +55,10 @@ public class MainActivity extends BaseActivity {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment)
                 .commit();
+    }
+
+    public void openHistory() {
+        loadFragment(ThirdFragment.instance());
+        navigation.setSelectedItemId(R.id.navigation_notifications);
     }
 }

@@ -2,6 +2,7 @@ package com.aiaiai.bestfintechappever.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,7 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.aiaiai.bestfintechappever.R;
+import com.aiaiai.bestfintechappever.activity.MainActivity;
 import com.aiaiai.bestfintechappever.adapter.OffersAdapter;
 import com.aiaiai.bestfintechappever.core.App;
 import com.aiaiai.bestfintechappever.data.BuyerManager;
@@ -19,6 +23,8 @@ import com.aiaiai.bestfintechappever.data.offer.OfferRepository;
 import com.aiaiai.bestfintechappever.model.Offer;
 import com.aiaiai.bestfintechappever.model.vh.OnItemClickListener;
 import com.aiaiai.bestfintechappever.util.itemdecoration.VerticalSpaceItemDecoration;
+import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
+import com.github.javiersantos.materialstyleddialogs.enums.Style;
 
 import java.util.List;
 
@@ -113,7 +119,19 @@ public class FirstFragment extends Fragment implements OfferRepository.Callback,
         isBuying = false;
         Context context = getContext();
         if (context != null) {
-            Toast.makeText(context, "Успешно куплено, показать поп ап", Toast.LENGTH_SHORT).show();
+            new MaterialStyledDialog.Builder(context)
+                    .setTitle("Поздравляем!")
+                    .setDescription("Покупка прошла успешно! Перейдите в Мои покупки, чтобы их получить")
+                    .setStyle(Style.HEADER_WITH_TITLE)
+                    .setScrollable(true)
+                    .setPositiveText("Мои покупки")
+                    .onPositive(new MaterialDialog.SingleButtonCallback() {
+                        @Override
+                        public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                            ((MainActivity) getActivity()).openHistory();
+                        }
+                    })
+                    .show();
         }
     }
 
