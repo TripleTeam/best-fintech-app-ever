@@ -6,7 +6,10 @@ public class GiftRequest {
     @SerializedName("user_id")
     long userId;
 
-    public GiftRequest(long userId) {
+    int type;
+
+    public GiftRequest(long userId, int type) {
         this.userId = userId;
+        this.type = type;
     }
 }
