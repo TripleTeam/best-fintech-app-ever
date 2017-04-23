@@ -36,7 +36,7 @@ public class GiftPoster {
             @Override
             public void run() {
                 try {
-                    Response<NetworkOffer> response = apiRetrofitService.postGift(new GiftRequest(AppConstants.userId, 0)).execute();
+                    Response<NetworkOffer> response = apiRetrofitService.postGift(new GiftRequest(AppConstants.userId, 1)).execute();
                     NetworkOffer networkOffer = response.body();
                     final Offer offer = offerMapper.toModel(networkOffer);
                     mainHandler.post(new MainHandler.OnMainThread() {
