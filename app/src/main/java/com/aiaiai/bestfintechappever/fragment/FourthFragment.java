@@ -68,7 +68,7 @@ public class FourthFragment extends Fragment implements GiftPoster.Callback {
 
         Context context = getContext();
         if (context != null) {
-            Toast.makeText(context, "Вы выиграли: " + offer.getDescription(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Вы выиграли: " + offer.getTitle(), Toast.LENGTH_SHORT).show();
             offerButton.setEnabled(true);
         }
     }
