@@ -4,21 +4,21 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />
+        android:title="Горячее"/>
 
     <item
         android:id="@+id/navigation_dashboard"
         android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_dashboard" />
+        android:title="Партнеры"/>
 
     <item
         android:id="@+id/navigation_notifications"
         android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_notifications" />
+        android:title="Баланс"/>
 
     <item
         android:id="@+id/navigation_achievements"
         android:icon="@drawable/ic_money_temp"
-        android:title="@string/title_notifications" />
+        android:title="Награды"/>
 
 </menu>
