@@ -16,4 +16,9 @@
         android:icon="@drawable/ic_notifications_black_24dp"
         android:title="@string/title_notifications" />
 
+    <item
+        android:id="@+id/navigation_achievements"
+        android:icon="@drawable/ic_money_temp"
+        android:title="@string/title_notifications" />
+
 </menu>
