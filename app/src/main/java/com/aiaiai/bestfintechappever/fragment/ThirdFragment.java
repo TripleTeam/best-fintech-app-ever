@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aiaiai.bestfintechappever.R;
@@ -46,6 +47,7 @@ public class ThirdFragment extends Fragment implements HistoryRepository.Callbac
     }
 
     private RecyclerView historyRecycler;
+    private TextView thirdBablo;
 
     @Inject
     HistoryRepository historyRepository;
@@ -55,6 +57,7 @@ public class ThirdFragment extends Fragment implements HistoryRepository.Callbac
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_third, container, false);
         historyRecycler = (RecyclerView) rootView.findViewById(R.id.third_history);
+        thirdBablo = (TextView) rootView.findViewById(R.id.third_bablo);
         return rootView;
     }
 
