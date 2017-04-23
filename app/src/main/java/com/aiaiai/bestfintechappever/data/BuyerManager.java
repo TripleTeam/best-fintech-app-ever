@@ -4,6 +4,7 @@ import android.support.annotation.MainThread;
 
 import com.aiaiai.bestfintechappever.async.MainHandler;
 import com.aiaiai.bestfintechappever.data.buying.BuyRequest;
+import com.aiaiai.bestfintechappever.model.Offer;
 
 import java.util.concurrent.ThreadPoolExecutor;
 
@@ -18,7 +19,7 @@ public class BuyerManager {
 
     public interface Callback {
         @MainThread
-        void onBought();
+        void onBought(Offer offer);
 
         void onErrorBought();
     }
@@ -30,18 +31,18 @@ public class BuyerManager {
         this.apiRetrofitService = apiRetrofitService;
     }
 
-    public void postBuying(final long itemId, final Callback callback) {
+    public void postBuying(final Offer offer, final Callback callback) {
         threadPoolExecutor.execute(new Runnable() {
             @Override
             public void run() {
 
                 try {
-                    boolean isSuccessful = apiRetrofitService.postBuy(new BuyRequest(0L, itemId)).execute().isSuccessful();
+                    boolean isSuccessful = apiRetrofitService.postBuy(new BuyRequest(0L, offer.getId())).execute().isSuccessful();
                     if (isSuccessful) {
                         mainHandler.post(new MainHandler.OnMainThread() {
                             @Override
                             public void doOnMain() {
-                                callback.onBought();
+                                callback.onBought(offer);
                             }
                         });
                     } else {

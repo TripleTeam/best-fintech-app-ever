@@ -97,7 +97,7 @@ public class FirstFragment extends Fragment implements OfferRepository.Callback,
                     if (!isBuying) {
                         isBuying = true;
                         Offer offer = offerList.get(position);
-                        buyerManager.postBuying(offer.getId(), FirstFragment.this);
+                        buyerManager.postBuying(offer, FirstFragment.this);
                     }
                 }
             };
@@ -115,12 +115,12 @@ public class FirstFragment extends Fragment implements OfferRepository.Callback,
     }
 
     @Override
-    public void onBought() {
+    public void onBought(Offer offer) {
         isBuying = false;
         Context context = getContext();
         if (context != null) {
             new MaterialStyledDialog.Builder(context)
-                    .setTitle("Поздравляем!")
+                    .setTitle("Получено " + offer.getCashbackValue() + " руб. кешбека")
                     .setDescription("Покупка прошла успешно! Перейдите в Мои покупки, чтобы их получить")
                     .setStyle(Style.HEADER_WITH_TITLE)
                     .setScrollable(true)
