@@ -1,6 +1,7 @@
 package com.aiaiai.bestfintechappever.data;
 
 import com.aiaiai.bestfintechappever.data.buying.BuyRequest;
+import com.aiaiai.bestfintechappever.data.cashback.Cashback;
 import com.aiaiai.bestfintechappever.data.history.HistoryItem;
 import com.aiaiai.bestfintechappever.data.offer.NetworkOffer;
 import com.aiaiai.bestfintechappever.model.LetyShopsOffer;
@@ -22,7 +23,7 @@ public interface ApiRetrofitService {
     Call<List<LetyShopsOffer>> getLettyOffers();
 
     @GET("user/get_cashback")
-    Call<Void> getCashBack(@Query("user_id") long userId);
+    Call<Cashback> getCashBack(@Query("user_id") long userId);
 
     @GET("user/get_history")
     Call<List<HistoryItem>> getHistory(@Query("user_id") long userId);

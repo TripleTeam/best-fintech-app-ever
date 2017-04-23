@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.aiaiai.bestfintechappever.R;
 import com.aiaiai.bestfintechappever.adapter.HistoryAdapter;
 import com.aiaiai.bestfintechappever.core.App;
+import com.aiaiai.bestfintechappever.data.cashback.CashbackRepository;
 import com.aiaiai.bestfintechappever.data.history.HistoryItem;
 import com.aiaiai.bestfintechappever.data.history.HistoryRepository;
 import com.aiaiai.bestfintechappever.model.vh.OnItemClickListener;
@@ -31,7 +32,7 @@ import javax.inject.Inject;
  * Yippie-Kai-Yay!
  */
 
-public class ThirdFragment extends Fragment implements HistoryRepository.Callback {
+public class ThirdFragment extends Fragment implements HistoryRepository.Callback, CashbackRepository.Callback {
 
     private View rootView;
 
@@ -52,6 +53,9 @@ public class ThirdFragment extends Fragment implements HistoryRepository.Callbac
     @Inject
     HistoryRepository historyRepository;
 
+    @Inject
+    CashbackRepository cashbackRepository;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -68,6 +72,7 @@ public class ThirdFragment extends Fragment implements HistoryRepository.Callbac
         historyRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
 //        historyRecycler.addItemDecoration(new VerticalSpaceItemDecoration(8));
         historyRepository.getHistory(this);
+        cashbackRepository.getCashback(this);
     }
 
     @Override
@@ -91,6 +96,23 @@ public class ThirdFragment extends Fragment implements HistoryRepository.Callbac
 
     @Override
     public void showError() {
+        Context context = getContext();
+        if (context != null) {
+            Toast.makeText(context, "Интернет опять не работает", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void showCashbackValue(long cashbackValue) {
+        Context context = getContext();
+
+        if (context != null) {
+            thirdBablo.setText(cashbackValue + " руб.");
+        }
+    }
+
+    @Override
+    public void showCashbackError() {
         Context context = getContext();
         if (context != null) {
             Toast.makeText(context, "Интернет опять не работает", Toast.LENGTH_SHORT).show();
