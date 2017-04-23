@@ -14,6 +14,9 @@ import com.aiaiai.bestfintechappever.R;
 import com.aiaiai.bestfintechappever.core.App;
 import com.aiaiai.bestfintechappever.data.gifts.GiftPoster;
 import com.aiaiai.bestfintechappever.model.Offer;
+import com.aiaiai.bestfintechappever.model.vh.CutOfferVh;
+import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
+import com.github.javiersantos.materialstyleddialogs.enums.Style;
 
 import javax.inject.Inject;
 
@@ -68,6 +71,18 @@ public class FourthFragment extends Fragment implements GiftPoster.Callback {
 
         Context context = getContext();
         if (context != null) {
+            View view = LayoutInflater.from(context).inflate(R.layout.item_offer_cut, null);
+            CutOfferVh offerVH = new CutOfferVh(view);
+            offerVH.bind(offer);
+
+            new MaterialStyledDialog.Builder(context)
+                    .setTitle("Вы выиграли!")
+                    .setStyle(Style.HEADER_WITH_TITLE)
+                    .setCustomView(view)
+                    .setScrollable(true)
+                    .setPositiveText("Ок")
+                    .show();
+
             Toast.makeText(context, "Вы выиграли: " + offer.getTitle(), Toast.LENGTH_SHORT).show();
             offerButton.setEnabled(true);
         }
