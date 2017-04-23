@@ -25,19 +25,38 @@
                 android:textColor="#666"
                 android:textSize="@dimen/material_text_subhead"/>
 
-            <TextView
-                android:id="@+id/third_bablo"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:drawableStart="@drawable/ic_coin"
-                android:gravity="center"
-                android:paddingBottom="16dp"
-                android:paddingStart="11dp"
-                android:text=""
-                android:textColor="@color/colorAccent"
-                android:textSize="@dimen/material_text_title"
-                tools:text="420,47 руб."/>
+                android:layout_marginBottom="16dp">
+                <TextView
+                    android:id="@+id/third_bablo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="12dp"
+                    android:drawableStart="@drawable/ic_coin"
+                    android:gravity="center"
+
+                    android:paddingStart="11dp"
+                    android:text=""
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/material_text_title"
+                    tools:text="420,47 руб."/>
+
+
+                <Button
+                    android:id="@+id/offer_button"
+                    style="@style/BabloButtonStyleBase"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/offer_price"
+                    android:layout_alignParentEnd="true"
+                    android:text="Вывести средства"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+            </RelativeLayout>
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
@@ -166,22 +185,22 @@
                         android:id="@+id/balanceMonth"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="460,23"
-                        android:textColor="@color/textColorPrimary"/>
+                        android:textColor="@color/textColorPrimary"
+                        tools:text="460,23"/>
 
                     <TextView
                         android:id="@+id/balance3Month"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="568,47"
-                        android:textColor="@color/textColorPrimary"/>
+                        android:textColor="@color/textColorPrimary"
+                        tools:text="568,47"/>
 
                     <TextView
                         android:id="@+id/balanceYear"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="1173,81"
-                        android:textColor="@color/textColorPrimary"/>
+                        android:textColor="@color/textColorPrimary"
+                        tools:text="1173,81"/>
 
                 </LinearLayout>
             </LinearLayout>
