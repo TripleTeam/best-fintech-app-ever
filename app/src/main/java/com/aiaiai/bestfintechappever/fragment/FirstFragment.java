@@ -103,7 +103,7 @@ public class FirstFragment extends Fragment implements OfferRepository.Callback,
 
                         new AlertDialog.Builder(context)
                                 .setTitle("Подтверждение покупки")
-                                .setMessage(Html.fromHtml("Вам будет начислен кешбек <b>" + offer.getCashbackValue() + "</b>. Купить?"))
+                                .setMessage(Html.fromHtml("Вам будет начислен кешбек <b>" + offer.getCashbackValue() + "</b>.<br> Карта списания: **** 4273 <br> Купить?"))
                                 .setPositiveButton("Да", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
