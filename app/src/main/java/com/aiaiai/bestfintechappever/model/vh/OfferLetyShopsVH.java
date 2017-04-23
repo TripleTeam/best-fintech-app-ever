@@ -45,6 +45,7 @@ public class OfferLetyShopsVH extends RecyclerView.ViewHolder {
                 .into(pic);
         title.setText(offer.getTitle());
         cashback.setText(String.format("Кэшбэк: %s", offer.getCashback()));
-        percent.setText(offer.getCashback());
+//        percent.setText(offer.getCashback());
+        percent.setText("Кэшбек: " + offer.getCashback());
     }
 }
