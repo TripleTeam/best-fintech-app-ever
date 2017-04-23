@@ -51,6 +51,7 @@ public class SecondFragment extends FirstFragment implements LetyOfferRepository
                 public void click(int position) {
                     LetyShopsOffer letyShopsOffer = offerList.get(position);
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(letyShopsOffer.getHref()));
+                    browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     App.getAppContext().startActivity(browserIntent);
                 }
             };
