@@ -49,6 +49,11 @@ public class ThirdFragment extends Fragment implements HistoryRepository.Callbac
 
     private RecyclerView historyRecycler;
     private TextView thirdBablo;
+    private TextView balance_second;
+    private TextView balanceMonth;
+    private TextView balance3Month;
+    private TextView balanceYear;
+
 
     @Inject
     HistoryRepository historyRepository;
@@ -62,6 +67,10 @@ public class ThirdFragment extends Fragment implements HistoryRepository.Callbac
         rootView = inflater.inflate(R.layout.fragment_third, container, false);
         historyRecycler = (RecyclerView) rootView.findViewById(R.id.third_history);
         thirdBablo = (TextView) rootView.findViewById(R.id.third_bablo);
+        balance_second = (TextView) rootView.findViewById(R.id.balance_second);
+        balanceMonth = (TextView) rootView.findViewById(R.id.balanceMonth);
+        balance3Month = (TextView) rootView.findViewById(R.id.balance3Month);
+        balanceYear = (TextView) rootView.findViewById(R.id.balanceYear);
         return rootView;
     }
 
@@ -108,6 +117,11 @@ public class ThirdFragment extends Fragment implements HistoryRepository.Callbac
 
         if (context != null) {
             thirdBablo.setText(cashbackValue + " руб.");
+            balance_second.setText(cashbackValue + " руб.");
+
+            balanceMonth.setText(String.format("%.2f", cashbackValue * 1.0058));
+            balance3Month.setText(String.format("%.2f", cashbackValue * 1.0176));
+            balanceYear.setText(String.format("%.2f", cashbackValue * 1.0723));
         }
     }
 

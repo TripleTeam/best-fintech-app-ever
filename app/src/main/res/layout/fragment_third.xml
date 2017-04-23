@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent" xmlns:tools="http://schemas.android.com/tools"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent" android:layout_height="match_parent"
               android:orientation="vertical">
 
     <android.support.v7.widget.CardView
@@ -23,7 +23,7 @@
                 android:paddingTop="16dp"
                 android:text="Ваше накопленное бабло"
                 android:textColor="#666"
-                android:textSize="@dimen/material_text_subhead" />
+                android:textSize="@dimen/material_text_subhead"/>
 
             <TextView
                 android:id="@+id/third_bablo"
@@ -34,10 +34,10 @@
                 android:gravity="center"
                 android:paddingBottom="16dp"
                 android:paddingStart="11dp"
-                tools:text="420,47 руб."
                 android:text=""
                 android:textColor="@color/colorAccent"
-                android:textSize="@dimen/material_text_title" />
+                android:textSize="@dimen/material_text_title"
+                tools:text="420,47 руб."/>
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
@@ -70,7 +70,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="23 апреля (сегодня)"
-                        android:textColor="@color/textColorPrimary" />
+                        android:textColor="@color/textColorPrimary"/>
 
                     <View
                         android:layout_width="match_parent"
@@ -78,25 +78,25 @@
                         android:layout_marginBottom="8dp"
                         android:layout_marginTop="8dp"
                         android:background="@color/divider"
-                        android:textColor="@color/textColorPrimary" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Через неделю"
-                        android:textColor="@color/textColorPrimary" />
+                        android:textColor="@color/textColorPrimary"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Через месяц"
-                        android:textColor="@color/textColorPrimary" />
+                        android:textColor="@color/textColorPrimary"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Через 3 месяца"
+                        android:textColor="@color/textColorPrimary"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Через год"
-                        android:textColor="@color/textColorPrimary" />
+                        android:textColor="@color/textColorPrimary"/>
 
                 </LinearLayout>
 
@@ -109,7 +109,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/textColorPrimary" />
+                        android:textColor="@color/textColorPrimary"/>
 
                     <View
                         android:layout_width="match_parent"
@@ -117,28 +117,28 @@
                         android:layout_marginBottom="8dp"
                         android:layout_marginTop="8dp"
                         android:background="@color/divider"
-                        android:textColor="@color/textColorPrimary" />
+                        android:textColor="@color/textColorPrimary"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="32dp"
-                        android:text="+3%"
-                        android:textColor="@color/textColorPercent" />
+                        android:text="+0.58%"
+                        android:textColor="@color/textColorPercent"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="32dp"
-                        android:text="+5%"
-                        android:textColor="@color/textColorPercent" />
+                        android:text="+1.76%"
+                        android:textColor="@color/textColorPercent"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="32dp"
-                        android:text="+12%"
-                        android:textColor="@color/textColorPercent" />
+                        android:text="+7.23%"
+                        android:textColor="@color/textColorPercent"/>
 
                 </LinearLayout>
 
@@ -148,10 +148,11 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/balance_second"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="420,47 руб."
-                        android:textColor="@color/textColorPrimary" />
+                        android:textColor="@color/textColorPrimary"/>
 
                     <View
                         android:layout_width="match_parent"
@@ -159,26 +160,28 @@
                         android:layout_marginBottom="8dp"
                         android:layout_marginTop="8dp"
                         android:background="@color/divider"
-                        android:textColor="@color/textColorPrimary" />
+                        android:textColor="@color/textColorPrimary"/>
 
                     <TextView
-                        android:id="@+id/textView"
+                        android:id="@+id/balanceMonth"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="460,23"
-                        android:textColor="@color/textColorPrimary" />
+                        tools:text="460,23"
+                        android:textColor="@color/textColorPrimary"/>
 
                     <TextView
+                        android:id="@+id/balance3Month"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="568,47"
-                        android:textColor="@color/textColorPrimary" />
+                        tools:text="568,47"
+                        android:textColor="@color/textColorPrimary"/>
 
                     <TextView
+                        android:id="@+id/balanceYear"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1173,81"
-                        android:textColor="@color/textColorPrimary" />
+                        tools:text="1173,81"
+                        android:textColor="@color/textColorPrimary"/>
 
                 </LinearLayout>
             </LinearLayout>
@@ -202,19 +205,19 @@
                 android:layout_height="wrap_content"
                 android:text="История заказов"
                 android:textColor="#666"
-                android:textSize="@dimen/material_text_subhead" />
+                android:textSize="@dimen/material_text_subhead"/>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginBottom="16dp"
                 android:layout_marginTop="16dp"
-                android:background="@color/divider" />
+                android:background="@color/divider"/>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/third_history"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
     </android.support.v7.widget.CardView>
