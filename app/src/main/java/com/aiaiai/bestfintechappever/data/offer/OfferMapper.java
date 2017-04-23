@@ -16,7 +16,7 @@ public class OfferMapper {
         this.baseUrl = baseUrl;
     }
 
-    Offer toModel(NetworkOffer networkOffer) {
+     public Offer toModel(NetworkOffer networkOffer) {
 
         long price = getNumber(networkOffer.getPrice());
         long discounted = getNumber(networkOffer.getDiscounted());

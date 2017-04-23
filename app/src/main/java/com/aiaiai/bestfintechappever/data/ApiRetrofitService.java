@@ -2,6 +2,7 @@ package com.aiaiai.bestfintechappever.data;
 
 import com.aiaiai.bestfintechappever.data.buying.BuyRequest;
 import com.aiaiai.bestfintechappever.data.cashback.Cashback;
+import com.aiaiai.bestfintechappever.data.gifts.GiftRequest;
 import com.aiaiai.bestfintechappever.data.history.HistoryItem;
 import com.aiaiai.bestfintechappever.data.offer.NetworkOffer;
 import com.aiaiai.bestfintechappever.model.LetyShopsOffer;
@@ -31,5 +32,8 @@ public interface ApiRetrofitService {
 
     @POST("biglion/buy")
     Call<Void> postBuy(@Body BuyRequest buyRequest);
+
+    @POST("biglion/buy_random_for_cashback")
+    Call<NetworkOffer> postGift(@Body GiftRequest buyRequest);
 
 }

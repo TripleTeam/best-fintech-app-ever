@@ -6,6 +6,7 @@ import com.aiaiai.bestfintechappever.activity.SplashActivity;
 import com.aiaiai.bestfintechappever.core.modules.AppModule;
 import com.aiaiai.bestfintechappever.core.modules.ConcurrencyModule;
 import com.aiaiai.bestfintechappever.fragment.FirstFragment;
+import com.aiaiai.bestfintechappever.fragment.FourthFragment;
 import com.aiaiai.bestfintechappever.fragment.SecondFragment;
 import com.aiaiai.bestfintechappever.fragment.ThirdFragment;
 
@@ -20,6 +21,8 @@ public interface AppComponent {
 
 
     void inject(ThirdFragment thirdFragment);
+
+    void inject(FourthFragment fourthFragment);
 
     @Component.Builder
     interface Builder {
