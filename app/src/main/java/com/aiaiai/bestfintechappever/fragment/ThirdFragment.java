@@ -122,6 +122,8 @@ public class ThirdFragment extends Fragment implements HistoryRepository.Callbac
             balanceMonth.setText(String.format("%.2f", cashbackValue * 1.0058));
             balance3Month.setText(String.format("%.2f", cashbackValue * 1.0176));
             balanceYear.setText(String.format("%.2f", cashbackValue * 1.0723));
+
+
         }
     }
 

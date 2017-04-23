@@ -95,14 +95,14 @@
 
         <TextView
             android:id="@+id/offer_percent"
-            android:layout_width="90dp"
-            android:layout_height="50dp"
+            android:layout_width="180dp"
+            android:layout_height="40dp"
             android:background="@drawable/bg_percent"
             android:fontFamily="casual"
             android:gravity="center_horizontal|bottom"
-            android:text="25%"
+            android:text="Кешбек: 25%"
             android:textColor="@color/white"
-            android:textSize="30sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
     </RelativeLayout>
