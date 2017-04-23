@@ -19,6 +19,6 @@
     <item
         android:id="@+id/navigation_achievements"
         android:icon="@drawable/ic_card_giftcard_white_24dp"
-        android:title="Награды"/>
+        android:title="Халява"/>
 
 </menu>
