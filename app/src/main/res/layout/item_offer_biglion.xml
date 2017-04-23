@@ -6,8 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
-                                    android:clickable="false"
-
+    android:background="?attr/selectableItemBackground"
     app:cardBackgroundColor="@color/white">
 
     <RelativeLayout
@@ -25,7 +24,6 @@
 
 
         <RelativeLayout
-            android:clickable="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/offer_pic"
