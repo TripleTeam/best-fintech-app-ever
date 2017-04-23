@@ -37,6 +37,8 @@ public class FourthFragment extends Fragment implements GiftPoster.Callback {
     GiftPoster giftPoster;
 
     private Button offerButton;
+    private Button offer_button_2;
+    private Button offer_button_3;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,6 +52,8 @@ public class FourthFragment extends Fragment implements GiftPoster.Callback {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_fourth, container, false);
         offerButton = (Button) rootView.findViewById(R.id.offer_button);
+        offer_button_2 = (Button) rootView.findViewById(R.id.offer_button_2);
+        offer_button_3 = (Button) rootView.findViewById(R.id.offer_button_3);
         return rootView;
     }
 
@@ -60,7 +64,21 @@ public class FourthFragment extends Fragment implements GiftPoster.Callback {
             @Override
             public void onClick(View v) {
                 offerButton.setEnabled(false);
-                giftPoster.requestGift(FourthFragment.this);
+                giftPoster.requestGift(FourthFragment.this, 1);
+            }
+        });
+        offer_button_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                offerButton.setEnabled(false);
+                giftPoster.requestGift(FourthFragment.this, 2);
+            }
+        });
+        offer_button_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                offerButton.setEnabled(false);
+                giftPoster.requestGift(FourthFragment.this, 3);
             }
         });
     }
