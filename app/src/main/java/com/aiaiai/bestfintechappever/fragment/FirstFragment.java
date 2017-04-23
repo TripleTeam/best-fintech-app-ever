@@ -1,12 +1,15 @@
 package com.aiaiai.bestfintechappever.fragment;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +22,7 @@ import com.aiaiai.bestfintechappever.activity.MainActivity;
 import com.aiaiai.bestfintechappever.adapter.OffersAdapter;
 import com.aiaiai.bestfintechappever.core.App;
 import com.aiaiai.bestfintechappever.data.BuyerManager;
+import com.aiaiai.bestfintechappever.data.cashback.Cashback;
 import com.aiaiai.bestfintechappever.data.offer.OfferRepository;
 import com.aiaiai.bestfintechappever.model.Offer;
 import com.aiaiai.bestfintechappever.model.vh.OnItemClickListener;
@@ -89,15 +93,27 @@ public class FirstFragment extends Fragment implements OfferRepository.Callback,
 
     @Override
     public void onOfferPrepared(final List<Offer> offerList) {
-        Context context = getContext();
+        final Context context = getContext();
         if (offersRecyclerView != null && context != null) {
             OnItemClickListener onItemClickListener = new OnItemClickListener() {
                 @Override
                 public void click(int position) {
                     if (!isBuying) {
-                        isBuying = true;
-                        Offer offer = offerList.get(position);
-                        buyerManager.postBuying(offer, FirstFragment.this);
+                        final Offer offer = offerList.get(position);
+
+                        new AlertDialog.Builder(context)
+                                .setTitle("Подтверждение покупки")
+                                .setMessage(Html.fromHtml("Вам будет начислен кешбек <b>" + offer.getCashbackValue() + "</b>. Купить?"))
+                                .setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        isBuying = true;
+                                        buyerManager.postBuying(offer, FirstFragment.this);
+                                    }
+
+                                })
+                                .setNegativeButton("Нет", null)
+                                .show();
                     }
                 }
             };
@@ -115,16 +131,16 @@ public class FirstFragment extends Fragment implements OfferRepository.Callback,
     }
 
     @Override
-    public void onBought(Offer offer) {
+    public void onBought(Offer offer, Cashback cashback) {
         isBuying = false;
         Context context = getContext();
         if (context != null) {
             new MaterialStyledDialog.Builder(context)
                     .setTitle("Получено " + offer.getCashbackValue() + " руб. кешбека")
-                    .setDescription("Покупка прошла успешно! Перейдите в Мои покупки, чтобы их получить")
+                    .setDescription(Html.fromHtml("Покупка совершена. Накоплено: <b>" + cashback.getValue() + "</b> руб."))
                     .setStyle(Style.HEADER_WITH_TITLE)
                     .setScrollable(true)
-                    .setPositiveText("Мои покупки")
+                    .setPositiveText("Посмотреть")
                     .onPositive(new MaterialDialog.SingleButtonCallback() {
                         @Override
                         public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {

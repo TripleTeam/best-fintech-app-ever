@@ -31,7 +31,7 @@ public interface ApiRetrofitService {
 
 
     @POST("biglion/buy")
-    Call<Void> postBuy(@Body BuyRequest buyRequest);
+    Call<Cashback> postBuy(@Body BuyRequest buyRequest);
 
     @POST("biglion/buy_random_for_cashback")
     Call<NetworkOffer> postGift(@Body GiftRequest buyRequest);

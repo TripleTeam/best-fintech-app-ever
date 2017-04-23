@@ -4,6 +4,7 @@ import android.support.annotation.MainThread;
 
 import com.aiaiai.bestfintechappever.async.MainHandler;
 import com.aiaiai.bestfintechappever.data.buying.BuyRequest;
+import com.aiaiai.bestfintechappever.data.cashback.Cashback;
 import com.aiaiai.bestfintechappever.model.Offer;
 
 import java.util.concurrent.ThreadPoolExecutor;
@@ -19,7 +20,7 @@ public class BuyerManager {
 
     public interface Callback {
         @MainThread
-        void onBought(Offer offer);
+        void onBought(Offer offer, Cashback cashback);
 
         void onErrorBought();
     }
@@ -37,12 +38,12 @@ public class BuyerManager {
             public void run() {
 
                 try {
-                    boolean isSuccessful = apiRetrofitService.postBuy(new BuyRequest(0L, offer.getId())).execute().isSuccessful();
-                    if (isSuccessful) {
+                    final Cashback cashback = apiRetrofitService.postBuy(new BuyRequest(0L, offer.getId())).execute().body();
+                    if (cashback != null) {
                         mainHandler.post(new MainHandler.OnMainThread() {
                             @Override
                             public void doOnMain() {
-                                callback.onBought(offer);
+                                callback.onBought(offer, cashback);
                             }
                         });
                     } else {
