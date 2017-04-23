@@ -67,8 +67,6 @@ public class FourthFragment extends Fragment implements GiftPoster.Callback {
 
     @Override
     public void showGift(Offer offer) {
-        // FIXME: 23.04.17 SHOW POPUP
-
         Context context = getContext();
         if (context != null) {
             View view = LayoutInflater.from(context).inflate(R.layout.item_offer_cut, null);
