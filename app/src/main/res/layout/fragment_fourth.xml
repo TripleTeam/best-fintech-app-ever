@@ -31,7 +31,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_margin="8dp"
-                    android:src="@drawable/ic_gift"/>
+                    android:src="@drawable/ic_simple_gift"/>
 
                 <TextView
                     android:id="@+id/fourth_gift_text"
@@ -98,7 +98,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_margin="8dp"
-                    android:src="@drawable/ic_gift"/>
+                    android:src="@drawable/ic_gold_gift"/>
 
                 <TextView
                     android:id="@+id/fourth_gift_text_2"
