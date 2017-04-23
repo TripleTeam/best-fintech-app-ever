@@ -70,14 +70,14 @@ public class FourthFragment extends Fragment implements GiftPoster.Callback {
         offer_button_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                offerButton.setEnabled(false);
+                offer_button_2.setEnabled(false);
                 giftPoster.requestGift(FourthFragment.this, 2);
             }
         });
         offer_button_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                offerButton.setEnabled(false);
+                offer_button_3.setEnabled(false);
                 giftPoster.requestGift(FourthFragment.this, 3);
             }
         });
@@ -99,8 +99,15 @@ public class FourthFragment extends Fragment implements GiftPoster.Callback {
                     .setPositiveText("Ок")
                     .show();
 
-            offerButton.setEnabled(true);
+            enableAllButtons();
+
         }
+    }
+
+    private void enableAllButtons() {
+        offerButton.setEnabled(true);
+        offer_button_2.setEnabled(true);
+        offer_button_3.setEnabled(true);
     }
 
     @Override
@@ -108,7 +115,7 @@ public class FourthFragment extends Fragment implements GiftPoster.Callback {
         Context context = getContext();
         if (context != null) {
             Toast.makeText(context, "Недостаточно средств, покупайте с кэшбеком", Toast.LENGTH_SHORT).show();
-            offerButton.setEnabled(true);
+            enableAllButtons();
         }
     }
 
@@ -117,7 +124,7 @@ public class FourthFragment extends Fragment implements GiftPoster.Callback {
         Context context = getContext();
         if (context != null) {
             Toast.makeText(context, "Интернет опять не работает", Toast.LENGTH_SHORT).show();
-            offerButton.setEnabled(true);
+            enableAllButtons();
         }
     }
 }
