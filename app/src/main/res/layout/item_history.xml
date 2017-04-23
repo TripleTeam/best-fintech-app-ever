@@ -10,7 +10,8 @@
         android:layout_height="wrap_content"
         android:textColor="@color/textColorPrimary"
         android:textStyle="bold"
-        tools:text="Заказ #1 (Пин-код: 1524)" />
+        android:layout_toLeftOf="@+id/history_button"
+        tools:text="Заказ #1" />
 
     <TextView
         android:id="@+id/history_date"

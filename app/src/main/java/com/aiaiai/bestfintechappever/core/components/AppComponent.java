@@ -7,6 +7,7 @@ import com.aiaiai.bestfintechappever.core.modules.AppModule;
 import com.aiaiai.bestfintechappever.core.modules.ConcurrencyModule;
 import com.aiaiai.bestfintechappever.fragment.FirstFragment;
 import com.aiaiai.bestfintechappever.fragment.SecondFragment;
+import com.aiaiai.bestfintechappever.fragment.ThirdFragment;
 
 import javax.inject.Singleton;
 
@@ -17,6 +18,8 @@ import dagger.Component;
 @Component(modules = {AppModule.class, ConcurrencyModule.class})
 public interface AppComponent {
 
+
+    void inject(ThirdFragment thirdFragment);
 
     @Component.Builder
     interface Builder {
