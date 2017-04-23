@@ -24,7 +24,7 @@
 
     <Button
         android:id="@+id/history_button"
-        style="@style/Button"
+        style="@style/BabloButtonStyleBase"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@id/history_date"

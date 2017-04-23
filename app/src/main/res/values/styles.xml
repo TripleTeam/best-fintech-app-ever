@@ -22,8 +22,13 @@
         <item name="itemTextColor">@color/navigation_item_color</item>
     </style>
 
-    <style name="Button" parent="Widget.AppCompat.Button.Borderless.Colored">
+    <style name="BabloButtonStyleBase" parent="Base.Widget.AppCompat.Button.Borderless">
+        <item name="android:textColor">@color/gold</item>
         <item name="android:textAllCaps">false</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="background">?attr/selectableItemBackground</item>
     </style>
 
 </resources>

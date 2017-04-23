@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
-    android:background="?attr/selectableItemBackground"
+                                    android:clickable="false"
+
     app:cardBackgroundColor="@color/white">
 
     <RelativeLayout
@@ -24,6 +25,7 @@
 
 
         <RelativeLayout
+            android:clickable="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/offer_pic"
@@ -88,7 +90,7 @@
 
             <Button
                 android:id="@+id/offer_button"
-                style="@style/Button"
+                style="@style/BabloButtonStyleBase"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/offer_price"
