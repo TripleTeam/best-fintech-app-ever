@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import com.aiaiai.bestfintechappever.R;
 import com.aiaiai.bestfintechappever.base.BaseActivity;
 import com.aiaiai.bestfintechappever.fragment.FirstFragment;
+import com.aiaiai.bestfintechappever.fragment.FourthFragment;
 import com.aiaiai.bestfintechappever.fragment.SecondFragment;
 import com.aiaiai.bestfintechappever.fragment.ThirdFragment;
 
@@ -28,6 +29,9 @@ public class MainActivity extends BaseActivity {
                     return true;
                 case R.id.navigation_notifications:
                     loadFragment(ThirdFragment.instance());
+                    return true;
+                case R.id.navigation_achievements:
+                    loadFragment(FourthFragment.instance());
                     return true;
             }
             return false;
